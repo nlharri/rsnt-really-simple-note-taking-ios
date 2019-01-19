@@ -12,6 +12,7 @@
 		4B3B9A3921F307A6008901C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B3B9A3721F307A6008901C2 /* Main.storyboard */; };
 		4B3B9A3B21F307A9008901C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B3B9A3A21F307A9008901C2 /* Assets.xcassets */; };
 		4B3B9A3E21F307A9008901C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B3B9A3C21F307A9008901C2 /* LaunchScreen.storyboard */; };
+		4B3B9A4621F3092C008901C2 /* NoteTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B9A4521F3092C008901C2 /* NoteTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		4B3B9A3A21F307A9008901C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B3B9A3D21F307A9008901C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B3B9A3F21F307A9008901C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B3B9A4521F3092C008901C2 /* NoteTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				4B3B9A3A21F307A9008901C2 /* Assets.xcassets */,
 				4B3B9A3C21F307A9008901C2 /* LaunchScreen.storyboard */,
 				4B3B9A3F21F307A9008901C2 /* Info.plist */,
+				4B3B9A4521F3092C008901C2 /* NoteTextField.swift */,
 			);
 			path = "rsnt-really-simple-note-taking-ios";
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B3B9A4621F3092C008901C2 /* NoteTextField.swift in Sources */,
 				4B3B9A3621F307A6008901C2 /* ViewController.swift in Sources */,
 				4B3B9A3421F307A6008901C2 /* AppDelegate.swift in Sources */,
 			);
