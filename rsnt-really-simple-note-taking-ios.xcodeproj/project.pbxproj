@@ -13,6 +13,8 @@
 		4BDBF64921F5B09400616E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BDBF64721F5B09400616E04 /* Main.storyboard */; };
 		4BDBF64B21F5B09600616E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BDBF64A21F5B09600616E04 /* Assets.xcassets */; };
 		4BDBF64E21F5B09600616E04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BDBF64C21F5B09600616E04 /* LaunchScreen.storyboard */; };
+		4BDBF65621F5B2EE00616E04 /* ReallySimpleNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDBF65521F5B2EE00616E04 /* ReallySimpleNote.swift */; };
+		4BDBF65821F5B3A000616E04 /* ReallySimpleNoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDBF65721F5B3A000616E04 /* ReallySimpleNoteStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		4BDBF64A21F5B09600616E04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BDBF64D21F5B09600616E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BDBF64F21F5B09600616E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BDBF65521F5B2EE00616E04 /* ReallySimpleNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReallySimpleNote.swift; sourceTree = "<group>"; };
+		4BDBF65721F5B3A000616E04 /* ReallySimpleNoteStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReallySimpleNoteStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				4BDBF64A21F5B09600616E04 /* Assets.xcassets */,
 				4BDBF64C21F5B09600616E04 /* LaunchScreen.storyboard */,
 				4BDBF64F21F5B09600616E04 /* Info.plist */,
+				4BDBF65521F5B2EE00616E04 /* ReallySimpleNote.swift */,
+				4BDBF65721F5B3A000616E04 /* ReallySimpleNoteStorage.swift */,
 			);
 			path = "rsnt-really-simple-note-taking-ios";
 			sourceTree = "<group>";
@@ -138,6 +144,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BDBF65621F5B2EE00616E04 /* ReallySimpleNote.swift in Sources */,
+				4BDBF65821F5B3A000616E04 /* ReallySimpleNoteStorage.swift in Sources */,
 				4BDBF64621F5B09400616E04 /* DetailViewController.swift in Sources */,
 				4BDBF64421F5B09400616E04 /* MasterViewController.swift in Sources */,
 				4BDBF64221F5B09400616E04 /* AppDelegate.swift in Sources */,
