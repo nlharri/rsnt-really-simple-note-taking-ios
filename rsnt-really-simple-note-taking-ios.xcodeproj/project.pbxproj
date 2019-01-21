@@ -7,27 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B3B9A3421F307A6008901C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B9A3321F307A6008901C2 /* AppDelegate.swift */; };
-		4B3B9A3621F307A6008901C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B9A3521F307A6008901C2 /* ViewController.swift */; };
-		4B3B9A3921F307A6008901C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B3B9A3721F307A6008901C2 /* Main.storyboard */; };
-		4B3B9A3B21F307A9008901C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B3B9A3A21F307A9008901C2 /* Assets.xcassets */; };
-		4B3B9A3E21F307A9008901C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B3B9A3C21F307A9008901C2 /* LaunchScreen.storyboard */; };
-		4B3B9A4621F3092C008901C2 /* NoteTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B9A4521F3092C008901C2 /* NoteTextField.swift */; };
+		4BDBF64221F5B09400616E04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDBF64121F5B09400616E04 /* AppDelegate.swift */; };
+		4BDBF64421F5B09400616E04 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDBF64321F5B09400616E04 /* MasterViewController.swift */; };
+		4BDBF64621F5B09400616E04 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDBF64521F5B09400616E04 /* DetailViewController.swift */; };
+		4BDBF64921F5B09400616E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BDBF64721F5B09400616E04 /* Main.storyboard */; };
+		4BDBF64B21F5B09600616E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BDBF64A21F5B09600616E04 /* Assets.xcassets */; };
+		4BDBF64E21F5B09600616E04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BDBF64C21F5B09600616E04 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4B3B9A3021F307A6008901C2 /* rsnt-really-simple-note-taking-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rsnt-really-simple-note-taking-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B3B9A3321F307A6008901C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4B3B9A3521F307A6008901C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4B3B9A3821F307A6008901C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4B3B9A3A21F307A9008901C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4B3B9A3D21F307A9008901C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4B3B9A3F21F307A9008901C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B3B9A4521F3092C008901C2 /* NoteTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTextField.swift; sourceTree = "<group>"; };
+		4BDBF63E21F5B09400616E04 /* rsnt-really-simple-note-taking-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rsnt-really-simple-note-taking-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BDBF64121F5B09400616E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4BDBF64321F5B09400616E04 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		4BDBF64521F5B09400616E04 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		4BDBF64821F5B09400616E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4BDBF64A21F5B09600616E04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4BDBF64D21F5B09600616E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4BDBF64F21F5B09600616E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4B3B9A2D21F307A6008901C2 /* Frameworks */ = {
+		4BDBF63B21F5B09400616E04 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,32 +37,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4B3B9A2721F307A6008901C2 = {
+		4BDBF63521F5B09400616E04 = {
 			isa = PBXGroup;
 			children = (
-				4B3B9A3221F307A6008901C2 /* rsnt-really-simple-note-taking-ios */,
-				4B3B9A3121F307A6008901C2 /* Products */,
+				4BDBF64021F5B09400616E04 /* rsnt-really-simple-note-taking-ios */,
+				4BDBF63F21F5B09400616E04 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		4B3B9A3121F307A6008901C2 /* Products */ = {
+		4BDBF63F21F5B09400616E04 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4B3B9A3021F307A6008901C2 /* rsnt-really-simple-note-taking-ios.app */,
+				4BDBF63E21F5B09400616E04 /* rsnt-really-simple-note-taking-ios.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4B3B9A3221F307A6008901C2 /* rsnt-really-simple-note-taking-ios */ = {
+		4BDBF64021F5B09400616E04 /* rsnt-really-simple-note-taking-ios */ = {
 			isa = PBXGroup;
 			children = (
-				4B3B9A3321F307A6008901C2 /* AppDelegate.swift */,
-				4B3B9A3521F307A6008901C2 /* ViewController.swift */,
-				4B3B9A3721F307A6008901C2 /* Main.storyboard */,
-				4B3B9A3A21F307A9008901C2 /* Assets.xcassets */,
-				4B3B9A3C21F307A9008901C2 /* LaunchScreen.storyboard */,
-				4B3B9A3F21F307A9008901C2 /* Info.plist */,
-				4B3B9A4521F3092C008901C2 /* NoteTextField.swift */,
+				4BDBF64121F5B09400616E04 /* AppDelegate.swift */,
+				4BDBF64321F5B09400616E04 /* MasterViewController.swift */,
+				4BDBF64521F5B09400616E04 /* DetailViewController.swift */,
+				4BDBF64721F5B09400616E04 /* Main.storyboard */,
+				4BDBF64A21F5B09600616E04 /* Assets.xcassets */,
+				4BDBF64C21F5B09600616E04 /* LaunchScreen.storyboard */,
+				4BDBF64F21F5B09600616E04 /* Info.plist */,
 			);
 			path = "rsnt-really-simple-note-taking-ios";
 			sourceTree = "<group>";
@@ -70,13 +70,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4B3B9A2F21F307A6008901C2 /* rsnt-really-simple-note-taking-ios */ = {
+		4BDBF63D21F5B09400616E04 /* rsnt-really-simple-note-taking-ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4B3B9A4221F307A9008901C2 /* Build configuration list for PBXNativeTarget "rsnt-really-simple-note-taking-ios" */;
+			buildConfigurationList = 4BDBF65221F5B09600616E04 /* Build configuration list for PBXNativeTarget "rsnt-really-simple-note-taking-ios" */;
 			buildPhases = (
-				4B3B9A2C21F307A6008901C2 /* Sources */,
-				4B3B9A2D21F307A6008901C2 /* Frameworks */,
-				4B3B9A2E21F307A6008901C2 /* Resources */,
+				4BDBF63A21F5B09400616E04 /* Sources */,
+				4BDBF63B21F5B09400616E04 /* Frameworks */,
+				4BDBF63C21F5B09400616E04 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -84,25 +84,25 @@
 			);
 			name = "rsnt-really-simple-note-taking-ios";
 			productName = "rsnt-really-simple-note-taking-ios";
-			productReference = 4B3B9A3021F307A6008901C2 /* rsnt-really-simple-note-taking-ios.app */;
+			productReference = 4BDBF63E21F5B09400616E04 /* rsnt-really-simple-note-taking-ios.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4B3B9A2821F307A6008901C2 /* Project object */ = {
+		4BDBF63621F5B09400616E04 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Németh László Harri";
 				TargetAttributes = {
-					4B3B9A2F21F307A6008901C2 = {
+					4BDBF63D21F5B09400616E04 = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
 			};
-			buildConfigurationList = 4B3B9A2B21F307A6008901C2 /* Build configuration list for PBXProject "rsnt-really-simple-note-taking-ios" */;
+			buildConfigurationList = 4BDBF63921F5B09400616E04 /* Build configuration list for PBXProject "rsnt-really-simple-note-taking-ios" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,55 +110,55 @@
 				en,
 				Base,
 			);
-			mainGroup = 4B3B9A2721F307A6008901C2;
-			productRefGroup = 4B3B9A3121F307A6008901C2 /* Products */;
+			mainGroup = 4BDBF63521F5B09400616E04;
+			productRefGroup = 4BDBF63F21F5B09400616E04 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4B3B9A2F21F307A6008901C2 /* rsnt-really-simple-note-taking-ios */,
+				4BDBF63D21F5B09400616E04 /* rsnt-really-simple-note-taking-ios */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4B3B9A2E21F307A6008901C2 /* Resources */ = {
+		4BDBF63C21F5B09400616E04 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B3B9A3E21F307A9008901C2 /* LaunchScreen.storyboard in Resources */,
-				4B3B9A3B21F307A9008901C2 /* Assets.xcassets in Resources */,
-				4B3B9A3921F307A6008901C2 /* Main.storyboard in Resources */,
+				4BDBF64E21F5B09600616E04 /* LaunchScreen.storyboard in Resources */,
+				4BDBF64B21F5B09600616E04 /* Assets.xcassets in Resources */,
+				4BDBF64921F5B09400616E04 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4B3B9A2C21F307A6008901C2 /* Sources */ = {
+		4BDBF63A21F5B09400616E04 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B3B9A4621F3092C008901C2 /* NoteTextField.swift in Sources */,
-				4B3B9A3621F307A6008901C2 /* ViewController.swift in Sources */,
-				4B3B9A3421F307A6008901C2 /* AppDelegate.swift in Sources */,
+				4BDBF64621F5B09400616E04 /* DetailViewController.swift in Sources */,
+				4BDBF64421F5B09400616E04 /* MasterViewController.swift in Sources */,
+				4BDBF64221F5B09400616E04 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4B3B9A3721F307A6008901C2 /* Main.storyboard */ = {
+		4BDBF64721F5B09400616E04 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4B3B9A3821F307A6008901C2 /* Base */,
+				4BDBF64821F5B09400616E04 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		4B3B9A3C21F307A9008901C2 /* LaunchScreen.storyboard */ = {
+		4BDBF64C21F5B09600616E04 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4B3B9A3D21F307A9008901C2 /* Base */,
+				4BDBF64D21F5B09600616E04 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -166,7 +166,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4B3B9A4021F307A9008901C2 /* Debug */ = {
+		4BDBF65021F5B09600616E04 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -227,7 +227,7 @@
 			};
 			name = Debug;
 		};
-		4B3B9A4121F307A9008901C2 /* Release */ = {
+		4BDBF65121F5B09600616E04 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -282,7 +282,7 @@
 			};
 			name = Release;
 		};
-		4B3B9A4321F307A9008901C2 /* Debug */ = {
+		4BDBF65321F5B09600616E04 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -299,7 +299,7 @@
 			};
 			name = Debug;
 		};
-		4B3B9A4421F307A9008901C2 /* Release */ = {
+		4BDBF65421F5B09600616E04 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -319,25 +319,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4B3B9A2B21F307A6008901C2 /* Build configuration list for PBXProject "rsnt-really-simple-note-taking-ios" */ = {
+		4BDBF63921F5B09400616E04 /* Build configuration list for PBXProject "rsnt-really-simple-note-taking-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4B3B9A4021F307A9008901C2 /* Debug */,
-				4B3B9A4121F307A9008901C2 /* Release */,
+				4BDBF65021F5B09600616E04 /* Debug */,
+				4BDBF65121F5B09600616E04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4B3B9A4221F307A9008901C2 /* Build configuration list for PBXNativeTarget "rsnt-really-simple-note-taking-ios" */ = {
+		4BDBF65221F5B09600616E04 /* Build configuration list for PBXNativeTarget "rsnt-really-simple-note-taking-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4B3B9A4321F307A9008901C2 /* Debug */,
-				4B3B9A4421F307A9008901C2 /* Release */,
+				4BDBF65321F5B09600616E04 /* Debug */,
+				4BDBF65421F5B09600616E04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 4B3B9A2821F307A6008901C2 /* Project object */;
+	rootObject = 4BDBF63621F5B09400616E04 /* Project object */;
 }
