@@ -67,10 +67,11 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ReallySimpleNoteUITableViewCell
 
         let object = objects[indexPath.row]
-        cell.textLabel!.text = object.noteText
+        cell.noteTopicLabel!.text = object.noteText
+        cell.noteTextLabel!.text = object.noteText
         return cell
     }
 
