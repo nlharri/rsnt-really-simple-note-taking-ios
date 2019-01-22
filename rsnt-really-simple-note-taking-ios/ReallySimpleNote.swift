@@ -9,9 +9,11 @@
 class ReallySimpleNote {
     private(set) var noteTopic : String
     private(set) var noteText  : String
-    
-    init(noteTopic:String, noteText:String) {
+    private(set) var noteDate  : String
+
+    init(noteTopic:String, noteText:String, noteDate:String) {
         self.noteTopic = noteTopic
         self.noteText  = noteText
+        self.noteDate  = noteDate
     }
 }
