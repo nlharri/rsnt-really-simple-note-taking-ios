@@ -91,13 +91,56 @@
                     <view key="view" contentMode="scaleToFill" id="Fe8-VP-KXW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGz-T5-2KI">
+                                <rect key="frame" x="16" y="80" width="199" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ut0-il-KPg">
+                                <rect key="frame" x="16" y="143" width="343" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="NoteTitle" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ep7-Da-01O">
+                                <rect key="frame" x="16" y="105" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="NoteText" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C0j-ww-jez">
+                                <rect key="frame" x="16" y="168" width="343" height="479"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXb-w8-Aje">
+                                <rect key="frame" x="224" y="80" width="135" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="baM-kJ-2U9" firstAttribute="trailing" secondItem="JXb-w8-Aje" secondAttribute="trailing" constant="16" id="Q4Y-hq-wQg"/>
+                            <constraint firstItem="baM-kJ-2U9" firstAttribute="trailing" secondItem="qGz-T5-2KI" secondAttribute="trailing" constant="160" id="dN5-VO-Pin"/>
+                            <constraint firstItem="JXb-w8-Aje" firstAttribute="top" secondItem="baM-kJ-2U9" secondAttribute="top" constant="16" id="nQ8-th-XM6"/>
+                            <constraint firstItem="qGz-T5-2KI" firstAttribute="leading" secondItem="baM-kJ-2U9" secondAttribute="leading" constant="16" id="pCL-ge-Q3l"/>
+                            <constraint firstItem="qGz-T5-2KI" firstAttribute="top" secondItem="baM-kJ-2U9" secondAttribute="top" constant="16" id="qMN-LG-dK6"/>
+                            <constraint firstItem="JXb-w8-Aje" firstAttribute="leading" secondItem="baM-kJ-2U9" secondAttribute="leading" constant="224" id="tf4-3U-W05"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="baM-kJ-2U9"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T1o-9M-J8H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1697" y="45"/>
+            <point key="canvasLocation" x="1453.5999999999999" y="127.28635682158921"/>
         </scene>
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
@@ -152,6 +195,7 @@
                                     <outlet property="noteTextLabel" destination="eYm-Mu-hhO" id="Ncz-oR-TOm"/>
                                     <outlet property="noteTopicLabel" destination="ZBW-X0-tnb" id="cl2-rt-pD5"/>
                                     <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="6S0-TO-JiA"/>
+                                    <segue destination="pJp-4i-4zG" kind="show" identifier="showCreateNoteSegue" trigger="accessoryAction" id="FDD-dR-pLh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
