@@ -36,13 +36,16 @@ class MasterViewController: UITableViewController {
     @objc
     func insertNewObject(_ sender: Any) {
         //objects.insert(NSDate(), at: 0)
+        /*
         let newNote : ReallySimpleNote = ReallySimpleNote.init(noteTopic: "Topic", noteText: "Text", noteDate: convertDate(date: NSDate()))
         objects.insert(newNote, at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
+        */
+        performSegue(withIdentifier: "showCreateNoteSegue", sender: self)
     }
     
-    func convertDate(date: NSDate) -> String {
+    private func convertDate(date: NSDate) -> String {
         let formatter = DateFormatter()
         // initially set the format based on your datepicker date / server String
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -85,7 +88,7 @@ class MasterViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ReallySimpleNoteUITableViewCell
 
         let object = objects[indexPath.row]
-        cell.noteTopicLabel!.text = object.noteText
+        cell.noteTopicLabel!.text = object.noteTopic
         cell.noteTextLabel!.text = object.noteText
         cell.noteDateLabel!.text = object.noteDate
         return cell
