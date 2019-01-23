@@ -128,7 +128,6 @@
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="doneButtonClicked:forEvent:" destination="pJp-4i-4zG" eventType="touchUpInside" id="dim-uj-OVT"/>
-                                    <segue destination="7bK-jq-Zjz" kind="show" identifier="backToTable" id="hYD-L0-mfR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -161,11 +160,12 @@
                         <outlet property="noteDoneButton" destination="lcf-CU-5cX" id="CNQ-iy-yx7"/>
                         <outlet property="noteTextTextView" destination="C0j-ww-jez" id="vUi-JD-P0U"/>
                         <outlet property="noteTitleTextField" destination="Ep7-Da-01O" id="9yh-dS-pOK"/>
+                        <segue destination="7bK-jq-Zjz" kind="show" identifier="backToMasterView" customClass="ReallySimpleNoteBackToMasterView" customModule="rsnt_really_simple_note_taking_ios" customModuleProvider="target" id="I9d-PT-S2W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T1o-9M-J8H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1453.5999999999999" y="127.28635682158921"/>
+            <point key="canvasLocation" x="1476" y="128"/>
         </scene>
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
@@ -254,7 +254,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6S0-TO-JiA"/>
-        <segue reference="hYD-L0-mfR"/>
+        <segue reference="Tll-UG-LXB"/>
+        <segue reference="I9d-PT-S2W"/>
     </inferredMetricsTieBreakers>
 </document>

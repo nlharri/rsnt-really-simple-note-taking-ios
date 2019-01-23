@@ -28,7 +28,7 @@ class CreateNoteViewController : UIViewController {
         ReallySimpleNoteStorage.storage.notes.append(note)
         
         performSegue(
-            withIdentifier: "backToTable",
+            withIdentifier: "backToMasterView",
             sender: self)
     }
     
