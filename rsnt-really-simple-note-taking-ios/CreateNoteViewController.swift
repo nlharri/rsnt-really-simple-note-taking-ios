@@ -15,6 +15,14 @@ class CreateNoteViewController : UIViewController {
     @IBOutlet weak var noteDoneButton: UIButton!
     @IBOutlet weak var noteDateLabel: UILabel!
     
+    @IBAction func noteTitleChanged(_ sender: UITextField, forEvent event: UIEvent) {
+        if sender.text?.isEmpty ?? true {
+            noteDoneButton.isEnabled = false
+        } else {
+            noteDoneButton.isEnabled = true
+        }
+    }
+    
     @IBAction func doneButtonClicked(_ sender: UIButton, forEvent event: UIEvent) {
         addItem()
     }
@@ -35,6 +43,9 @@ class CreateNoteViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         noteDateLabel.text = convertDate(date: NSDate())
+        noteTextTextView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
+        noteTextTextView.layer.borderWidth = 1.0
+        noteTextTextView.layer.cornerRadius = 5
     }
 
     private func convertDate(date: NSDate) -> String {
@@ -46,7 +57,7 @@ class CreateNoteViewController : UIViewController {
         // convert your string to date
         let yourDate = formatter.date(from: myString)
         //then again set the date format whhich type of output you need
-        formatter.dateFormat = "EEEE, MMM d, yyyy"
+        formatter.dateFormat = "EEEE, MMM d, yyyy, hh:mm:ss"
         // again convert your date to string
         let myStringafd = formatter.string(from: yourDate!)
         return myStringafd

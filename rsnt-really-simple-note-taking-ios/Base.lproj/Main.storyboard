@@ -93,39 +93,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGz-T5-2KI">
-                                <rect key="frame" x="16" y="36" width="199" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGz-T5-2KI">
+                                <rect key="frame" x="16" y="36" width="143" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ut0-il-KPg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ut0-il-KPg">
                                 <rect key="frame" x="16" y="99" width="343" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="NoteTitle" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ep7-Da-01O">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Note 1" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ep7-Da-01O">
                                 <rect key="frame" x="16" y="61" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="noteTitleChanged:forEvent:" destination="pJp-4i-4zG" eventType="editingChanged" id="JL2-6X-F2r"/>
+                                    <action selector="textTitleChanged:forEvent:" destination="pJp-4i-4zG" eventType="valueChanged" id="Wu0-jG-RQ5"/>
+                                </connections>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="NoteText" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C0j-ww-jez">
-                                <rect key="frame" x="16" y="124" width="343" height="483"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0j-ww-jez">
+                                <rect key="frame" x="16" y="124" width="343" height="465"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXb-w8-Aje">
-                                <rect key="frame" x="224" y="36" width="135" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXb-w8-Aje">
+                                <rect key="frame" x="150" y="36" width="209" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcf-CU-5cX">
-                                <rect key="frame" x="16" y="621" width="343" height="30"/>
-                                <state key="normal" title="Done"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcf-CU-5cX">
+                                <rect key="frame" x="16" y="603" width="343" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="✓"/>
                                 <connections>
                                     <action selector="doneButtonClicked:forEvent:" destination="pJp-4i-4zG" eventType="touchUpInside" id="dim-uj-OVT"/>
                                 </connections>
@@ -141,7 +147,7 @@
                             <constraint firstItem="lcf-CU-5cX" firstAttribute="top" secondItem="C0j-ww-jez" secondAttribute="bottom" constant="14" id="Fpr-2v-6uk"/>
                             <constraint firstItem="baM-kJ-2U9" firstAttribute="trailing" secondItem="Ut0-il-KPg" secondAttribute="trailing" constant="16" id="O4n-k6-uWi"/>
                             <constraint firstItem="baM-kJ-2U9" firstAttribute="trailing" secondItem="JXb-w8-Aje" secondAttribute="trailing" constant="16" id="Q4Y-hq-wQg"/>
-                            <constraint firstItem="baM-kJ-2U9" firstAttribute="trailing" secondItem="qGz-T5-2KI" secondAttribute="trailing" constant="160" id="dN5-VO-Pin"/>
+                            <constraint firstItem="baM-kJ-2U9" firstAttribute="trailing" secondItem="qGz-T5-2KI" secondAttribute="trailing" constant="216" id="dN5-VO-Pin"/>
                             <constraint firstItem="Ut0-il-KPg" firstAttribute="leading" secondItem="baM-kJ-2U9" secondAttribute="leading" constant="16" id="eCb-wJ-C31"/>
                             <constraint firstItem="baM-kJ-2U9" firstAttribute="bottom" secondItem="lcf-CU-5cX" secondAttribute="bottom" constant="16" id="fE8-Hc-Ojy"/>
                             <constraint firstItem="Ep7-Da-01O" firstAttribute="top" secondItem="qGz-T5-2KI" secondAttribute="bottom" constant="8" id="iSz-Le-Yrz"/>
@@ -149,7 +155,7 @@
                             <constraint firstItem="C0j-ww-jez" firstAttribute="top" secondItem="Ut0-il-KPg" secondAttribute="bottom" constant="8" id="nVI-SK-s5f"/>
                             <constraint firstItem="qGz-T5-2KI" firstAttribute="leading" secondItem="baM-kJ-2U9" secondAttribute="leading" constant="16" id="pCL-ge-Q3l"/>
                             <constraint firstItem="qGz-T5-2KI" firstAttribute="top" secondItem="baM-kJ-2U9" secondAttribute="top" constant="16" id="qMN-LG-dK6"/>
-                            <constraint firstItem="JXb-w8-Aje" firstAttribute="leading" secondItem="baM-kJ-2U9" secondAttribute="leading" constant="224" id="tf4-3U-W05"/>
+                            <constraint firstItem="JXb-w8-Aje" firstAttribute="leading" secondItem="baM-kJ-2U9" secondAttribute="leading" constant="150" id="tf4-3U-W05"/>
                             <constraint firstItem="C0j-ww-jez" firstAttribute="leading" secondItem="baM-kJ-2U9" secondAttribute="leading" constant="16" id="uO2-NU-IKm"/>
                             <constraint firstItem="Ep7-Da-01O" firstAttribute="leading" secondItem="baM-kJ-2U9" secondAttribute="leading" constant="16" id="wxr-P3-CmN"/>
                         </constraints>
