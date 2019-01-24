@@ -11,15 +11,18 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var noteTopicLabel: UILabel!
-    @IBOutlet weak var noteTextLabel: UILabel!
-
+    @IBOutlet weak var noteTextTextView: UITextView!
+    @IBOutlet weak var noteDate: UILabel!
+    
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = detailItem {
-            if let textLabel  = noteTextLabel,
-               let topicLabel = noteTopicLabel {
+            if let topicLabel = noteTopicLabel,
+               let dateLabel = noteDate,
+               let textView = noteTextTextView {
                 topicLabel.text = detail.noteTopic
-                textLabel.text  = detail.noteText
+                dateLabel.text = detail.noteDate
+                textView.text = detail.noteText
             }
         }
     }

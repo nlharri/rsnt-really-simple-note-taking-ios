@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateNoteViewController : UIViewController {
+class CreateNoteViewController : UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var noteTitleTextField: UITextField!
     @IBOutlet weak var noteTextTextView: UITextView!
@@ -16,7 +16,9 @@ class CreateNoteViewController : UIViewController {
     @IBOutlet weak var noteDateLabel: UILabel!
     
     @IBAction func noteTitleChanged(_ sender: UITextField, forEvent event: UIEvent) {
-        if sender.text?.isEmpty ?? true {
+        //if sender.text?.isEmpty ?? true,
+        //   noteTextTextView.text?.isEmpty ?? true {
+        if ( sender.text?.isEmpty ?? true ) || ( noteTextTextView.text?.isEmpty ?? true ) {
             noteDoneButton.isEnabled = false
         } else {
             noteDoneButton.isEnabled = true
@@ -42,6 +44,7 @@ class CreateNoteViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        noteTextTextView.delegate = self
         noteDateLabel.text = convertDate(date: NSDate())
         noteTextTextView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
         noteTextTextView.layer.borderWidth = 1.0
@@ -63,5 +66,12 @@ class CreateNoteViewController : UIViewController {
         return myStringafd
     }
     
+    func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
+        if ( noteTitleTextField.text?.isEmpty ?? true ) || ( textView.text?.isEmpty ?? true ) {
+            noteDoneButton.isEnabled = false
+        } else {
+            noteDoneButton.isEnabled = true
+        }
+    }
 
 }
