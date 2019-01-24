@@ -125,7 +125,7 @@
                                 </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0j-ww-jez">
-                                <rect key="frame" x="16" y="124" width="343" height="411"/>
+                                <rect key="frame" x="16" y="124" width="343" height="467"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -136,13 +136,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVg-U7-544">
-                                <rect key="frame" x="16" y="599" width="343" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="𐄂 Cancel"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcf-CU-5cX">
-                                <rect key="frame" x="16" y="543" width="343" height="48"/>
+                                <rect key="frame" x="16" y="599" width="343" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="✓ OK"/>
                                 <connections>
@@ -157,22 +152,19 @@
                             <constraint firstItem="baM-kJ-2U9" firstAttribute="trailing" secondItem="Ep7-Da-01O" secondAttribute="trailing" constant="16" id="9gq-4r-bx9"/>
                             <constraint firstItem="baM-kJ-2U9" firstAttribute="trailing" secondItem="C0j-ww-jez" secondAttribute="trailing" constant="16" id="Ado-v5-1Qi"/>
                             <constraint firstItem="baM-kJ-2U9" firstAttribute="trailing" secondItem="Ut0-il-KPg" secondAttribute="trailing" constant="16" id="O4n-k6-uWi"/>
-                            <constraint firstItem="baM-kJ-2U9" firstAttribute="bottom" secondItem="rVg-U7-544" secondAttribute="bottom" constant="20" id="Ogj-4Y-N1S"/>
                             <constraint firstItem="baM-kJ-2U9" firstAttribute="trailing" secondItem="JXb-w8-Aje" secondAttribute="trailing" constant="16" id="Q4Y-hq-wQg"/>
-                            <constraint firstItem="lcf-CU-5cX" firstAttribute="top" secondItem="C0j-ww-jez" secondAttribute="bottom" constant="8" id="VsH-Oa-hSe"/>
-                            <constraint firstItem="baM-kJ-2U9" firstAttribute="trailing" secondItem="rVg-U7-544" secondAttribute="trailing" constant="16" id="aWa-uR-nlk"/>
-                            <constraint firstItem="rVg-U7-544" firstAttribute="leading" secondItem="baM-kJ-2U9" secondAttribute="leading" constant="16" id="cMB-jV-FCw"/>
                             <constraint firstItem="baM-kJ-2U9" firstAttribute="trailing" secondItem="qGz-T5-2KI" secondAttribute="trailing" constant="216" id="dN5-VO-Pin"/>
                             <constraint firstItem="Ut0-il-KPg" firstAttribute="leading" secondItem="baM-kJ-2U9" secondAttribute="leading" constant="16" id="eCb-wJ-C31"/>
-                            <constraint firstItem="rVg-U7-544" firstAttribute="top" secondItem="lcf-CU-5cX" secondAttribute="bottom" constant="8" id="hZd-mn-wck"/>
                             <constraint firstItem="Ep7-Da-01O" firstAttribute="top" secondItem="qGz-T5-2KI" secondAttribute="bottom" constant="8" id="iSz-Le-Yrz"/>
                             <constraint firstItem="baM-kJ-2U9" firstAttribute="trailing" secondItem="lcf-CU-5cX" secondAttribute="trailing" constant="16" id="k4y-UI-5YP"/>
+                            <constraint firstItem="lcf-CU-5cX" firstAttribute="top" secondItem="C0j-ww-jez" secondAttribute="bottom" constant="8" id="kW0-eQ-UdQ"/>
                             <constraint firstItem="JXb-w8-Aje" firstAttribute="top" secondItem="baM-kJ-2U9" secondAttribute="top" constant="16" id="nQ8-th-XM6"/>
-                            <constraint firstItem="C0j-ww-jez" firstAttribute="top" secondItem="Ut0-il-KPg" secondAttribute="bottom" constant="8" id="nVI-SK-s5f"/>
                             <constraint firstItem="qGz-T5-2KI" firstAttribute="leading" secondItem="baM-kJ-2U9" secondAttribute="leading" constant="16" id="pCL-ge-Q3l"/>
                             <constraint firstItem="qGz-T5-2KI" firstAttribute="top" secondItem="baM-kJ-2U9" secondAttribute="top" constant="16" id="qMN-LG-dK6"/>
                             <constraint firstItem="JXb-w8-Aje" firstAttribute="leading" secondItem="baM-kJ-2U9" secondAttribute="leading" constant="150" id="tf4-3U-W05"/>
                             <constraint firstItem="C0j-ww-jez" firstAttribute="leading" secondItem="baM-kJ-2U9" secondAttribute="leading" constant="16" id="uO2-NU-IKm"/>
+                            <constraint firstItem="C0j-ww-jez" firstAttribute="top" secondItem="Ut0-il-KPg" secondAttribute="bottom" constant="8" id="uVn-Yh-qq8"/>
+                            <constraint firstItem="baM-kJ-2U9" firstAttribute="bottom" secondItem="lcf-CU-5cX" secondAttribute="bottom" constant="20" id="wrH-Xh-SJs"/>
                             <constraint firstItem="Ep7-Da-01O" firstAttribute="leading" secondItem="baM-kJ-2U9" secondAttribute="leading" constant="16" id="wxr-P3-CmN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="baM-kJ-2U9"/>
