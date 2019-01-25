@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4B3E583921FA1772001C8C76 /* ReallySimpleNotesData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B3E583721FA1772001C8C76 /* ReallySimpleNotesData.xcdatamodeld */; };
 		4B7A016821F7041F00854E02 /* CreateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A016721F7041F00854E02 /* CreateNoteViewController.swift */; };
+		4B85A55221FAD00200933413 /* ReallySimpleNoteDateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85A55121FAD00200933413 /* ReallySimpleNoteDateHelper.swift */; };
+		4B85A55421FAD4BC00933413 /* ReallySimpleNoteCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85A55321FAD4BC00933413 /* ReallySimpleNoteCoreDataHelper.swift */; };
 		4B8B981621F6409C0048122E /* ReallySimpleNoteUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8B981521F6409C0048122E /* ReallySimpleNoteUITableViewCell.swift */; };
 		4BDBF64221F5B09400616E04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDBF64121F5B09400616E04 /* AppDelegate.swift */; };
 		4BDBF64421F5B09400616E04 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDBF64321F5B09400616E04 /* MasterViewController.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		4B3E583821FA1772001C8C76 /* ReallySimpleNotesData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReallySimpleNotesData.xcdatamodel; sourceTree = "<group>"; };
 		4B7A016721F7041F00854E02 /* CreateNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteViewController.swift; sourceTree = "<group>"; };
+		4B85A55121FAD00200933413 /* ReallySimpleNoteDateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReallySimpleNoteDateHelper.swift; sourceTree = "<group>"; };
+		4B85A55321FAD4BC00933413 /* ReallySimpleNoteCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReallySimpleNoteCoreDataHelper.swift; sourceTree = "<group>"; };
 		4B8B981521F6409C0048122E /* ReallySimpleNoteUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReallySimpleNoteUITableViewCell.swift; sourceTree = "<group>"; };
 		4BDBF63E21F5B09400616E04 /* rsnt-really-simple-note-taking-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rsnt-really-simple-note-taking-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BDBF64121F5B09400616E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 				4B8B981521F6409C0048122E /* ReallySimpleNoteUITableViewCell.swift */,
 				4B7A016721F7041F00854E02 /* CreateNoteViewController.swift */,
 				4B3E583721FA1772001C8C76 /* ReallySimpleNotesData.xcdatamodeld */,
+				4B85A55121FAD00200933413 /* ReallySimpleNoteDateHelper.swift */,
+				4B85A55321FAD4BC00933413 /* ReallySimpleNoteCoreDataHelper.swift */,
 			);
 			path = "rsnt-really-simple-note-taking-ios";
 			sourceTree = "<group>";
@@ -160,7 +166,9 @@
 				4BDBF64621F5B09400616E04 /* DetailViewController.swift in Sources */,
 				4BDBF64421F5B09400616E04 /* MasterViewController.swift in Sources */,
 				4B7A016821F7041F00854E02 /* CreateNoteViewController.swift in Sources */,
+				4B85A55421FAD4BC00933413 /* ReallySimpleNoteCoreDataHelper.swift in Sources */,
 				4BDBF64221F5B09400616E04 /* AppDelegate.swift in Sources */,
+				4B85A55221FAD00200933413 /* ReallySimpleNoteDateHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

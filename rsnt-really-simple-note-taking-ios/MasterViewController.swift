@@ -11,12 +11,25 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    //var objects = [Any]()
     var objects = ReallySimpleNoteStorage.storage.notes
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Core data initialization
+        //As we know that container is set up in the AppDelegates so we need to refer that container.
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            // TODO proper error handling here!
+            return
+        }
+        
+        //We need to create a context from this container
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        // set this to the storage
+        ReallySimpleNoteStorage.storage.setManagedContext(managedObjectContext: managedContext)
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
 
@@ -35,31 +48,9 @@ class MasterViewController: UITableViewController {
 
     @objc
     func insertNewObject(_ sender: Any) {
-        //objects.insert(NSDate(), at: 0)
-        /*
-        let newNote : ReallySimpleNote = ReallySimpleNote.init(noteTopic: "Topic", noteText: "Text", noteDate: convertDate(date: NSDate()))
-        objects.insert(newNote, at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
-        */
         performSegue(withIdentifier: "showCreateNoteSegue", sender: self)
     }
     
-    private func convertDate(date: NSDate) -> String {
-        let formatter = DateFormatter()
-        // initially set the format based on your datepicker date / server String
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        let myString = formatter.string(from: Date()) // string purpose I add here
-        // convert your string to date
-        let yourDate = formatter.date(from: myString)
-        //then again set the date format whhich type of output you need
-        formatter.dateFormat = "EEEE, MMM d, yyyy"
-        // again convert your date to string
-        let myStringafd = formatter.string(from: yourDate!)
-        return myStringafd
-    }
-
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
