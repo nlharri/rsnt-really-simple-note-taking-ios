@@ -11,35 +11,105 @@ import CoreData
 
 class ReallySimpleNoteCoreDataHelper {
     
-    func createData(){
+    static func createNoteInCoreData(
+        noteToBeCreated:          ReallySimpleNote,
+        intoManagedObjectContext: NSManagedObjectContext) {
         
-//        //As we know that container is set up in the AppDelegates so we need to refer that container.
-//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-//        
-//        //We need to create a context from this container
-//        let managedContext = appDelegate.persistentContainer.viewContext
-//        
-//        //Now let’s create an entity and new user records.
-//        let userEntity = NSEntityDescription.entity(forEntityName: "User", in: managedContext)!
-//        
-//        //final, we need to add some data to our newly created record for each keys using
-//        //here adding 5 data with loop
-//        
-//        for i in 1...5 {
-//            
-//            let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
-//            user.setValue("Ankur\(i)", forKeyPath: "username")
-//            user.setValue("ankur\(i)@test.com", forKey: "email")
-//            user.setValue("ankur\(i)", forKey: "password")
-//        }
-//        
-//        //Now we have set all the values. The next step is to save them inside the Core Data
-//        
-//        do {
-//            try managedContext.save()
-//            
-//        } catch let error as NSError {
-//            print("Could not save. \(error), \(error.userInfo)")
-//        }
+        // Let’s create an entity and new note record
+        let noteEntity = NSEntityDescription.entity(
+            forEntityName: "Note",
+            in:            intoManagedObjectContext)!
+        
+        let newNoteToBeCreated = NSManagedObject(
+            entity:     noteEntity,
+            insertInto: intoManagedObjectContext)
+        
+        newNoteToBeCreated.setValue(
+            noteToBeCreated.noteTopic,
+            forKey: "noteTitle")
+        
+        newNoteToBeCreated.setValue(
+            noteToBeCreated.noteText,
+            forKey: "noteText")
+        
+        newNoteToBeCreated.setValue(
+            noteToBeCreated.noteDate,
+            forKey: "noteTimeStamp")
+        
+        do {
+            try intoManagedObjectContext.save()
+        } catch let error as NSError {
+            // TODO error handling
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
+    
+    static func readNotesFromCoreData(fromManagedObjectContext: NSManagedObjectContext) -> [ReallySimpleNote] {
+        return []
+    }
+    
+    static func readNoteFromCoreData(
+        noteToBeRead:             ReallySimpleNote,
+        fromManagedObjectContext: NSManagedObjectContext) -> ReallySimpleNote? {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
+        
+        let noteTitlePredicate = NSPredicate(format: "noteTitle = %@", noteToBeRead.noteTopic)
+        
+        let noteTextPredicate = NSPredicate(format: "noteText = %@", noteToBeRead.noteText)
+        
+        let noteTimeStampPredicate = NSPredicate(format: "noteTimeStamp = %@", noteToBeRead.noteDate)
+        
+        fetchRequest.predicate = NSCompoundPredicate(
+            andPredicateWithSubpredicates: [noteTitlePredicate,
+                                            noteTextPredicate,
+                                            noteTimeStampPredicate])
+        do {
+            let fetchedNotesFromCoreData = try fromManagedObjectContext.fetch(fetchRequest)
+            let noteManagedObjectToBeRead = fetchedNotesFromCoreData[0] as! NSManagedObject
+            return ReallySimpleNote.init(
+                noteTopic: noteManagedObjectToBeRead.value(forKey: "noteTitle") as! String,
+                noteText: noteManagedObjectToBeRead.value(forKey: "noteTimeStamp") as! String,
+                noteDate: noteManagedObjectToBeRead.value(forKey: "noteText") as! String)
+        } catch let error as NSError {
+            // TODO error handling
+            print("Could not read. \(error), \(error.userInfo)")
+            return nil
+        }
+    }
+
+    static func deleteNoteFromCoreData(
+        noteToBeDeleted:          ReallySimpleNote,
+        fromManagedObjectContext: NSManagedObjectContext) {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
+        
+        let noteTitlePredicate = NSPredicate(format: "noteTitle = %@", noteToBeDeleted.noteTopic)
+        
+        let noteTextPredicate = NSPredicate(format: "noteText = %@", noteToBeDeleted.noteText)
+
+        let noteTimeStampPredicate = NSPredicate(format: "noteTimeStamp = %@", noteToBeDeleted.noteDate)
+        
+        fetchRequest.predicate = NSCompoundPredicate(
+            andPredicateWithSubpredicates: [noteTitlePredicate,
+                                            noteTextPredicate,
+                                            noteTimeStampPredicate])
+        
+        do {
+            let fetchedNotesFromCoreData = try fromManagedObjectContext.fetch(fetchRequest)
+            let noteManagedObjectToBeDeleted = fetchedNotesFromCoreData[0] as! NSManagedObject
+            fromManagedObjectContext.delete(noteManagedObjectToBeDeleted)
+            
+            do {
+                try fromManagedObjectContext.save()
+            } catch let error as NSError {
+                // TODO error handling
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+        } catch let error as NSError {
+            // TODO error handling
+            print("Could not delete. \(error), \(error.userInfo)")
+        }
+        
+    }
+
 }

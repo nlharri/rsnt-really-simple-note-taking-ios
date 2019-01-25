@@ -11,7 +11,7 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = ReallySimpleNoteStorage.storage.notes
+    //var objects = ReallySimpleNoteStorage.storage.notes
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +26,8 @@ class MasterViewController: UITableViewController {
         //We need to create a context from this container
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        // set this to the storage
+        // set context in the storage
         ReallySimpleNoteStorage.storage.setManagedContext(managedObjectContext: managedContext)
-        
         
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
@@ -56,7 +55,8 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row]
+                //let object = objects[indexPath.row]
+                let object = ReallySimpleNoteStorage.storage.readNote(at: indexPath.row)
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
@@ -72,13 +72,15 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        //return objects.count
+        return ReallySimpleNoteStorage.storage.count()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ReallySimpleNoteUITableViewCell
 
-        let object = objects[indexPath.row]
+        //let object = objects[indexPath.row]
+        let object = ReallySimpleNoteStorage.storage.readNote(at: indexPath.row)
         cell.noteTopicLabel!.text = object.noteTopic
         cell.noteTextLabel!.text = object.noteText
         cell.noteDateLabel!.text = object.noteDate
@@ -92,7 +94,8 @@ class MasterViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            objects.remove(at: indexPath.row)
+            //objects.remove(at: indexPath.row)
+            ReallySimpleNoteStorage.storage.removeNote(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

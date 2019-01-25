@@ -34,8 +34,7 @@ class CreateNoteViewController : UIViewController, UITextViewDelegate {
             noteTopic: noteTitleTextField.text!,
             noteText: noteTextTextView.text,
             noteDate: ReallySimpleNoteDateHelper.convertDate(date: NSDate()))
-
-        ReallySimpleNoteStorage.storage.notes.append(note)
+        ReallySimpleNoteStorage.storage.addNote(noteToBeAdded: note)
         
         performSegue(
             withIdentifier: "backToMasterView",
