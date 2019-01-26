@@ -23,7 +23,8 @@ class ReallySimpleNoteStorage {
     
     func setManagedContext(managedObjectContext: NSManagedObjectContext) {
         self.managedObjectContext = managedObjectContext
-        //self.managedContextHasBeenSet = true
+        self.managedContextHasBeenSet = true
+        self.notes = ReallySimpleNoteCoreDataHelper.readNotesFromCoreData(fromManagedObjectContext: self.managedObjectContext)
     }
     
     func addNote(noteToBeAdded: ReallySimpleNote) {

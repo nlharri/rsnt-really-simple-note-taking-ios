@@ -20,6 +20,7 @@ class MasterViewController: UITableViewController {
         //As we know that container is set up in the AppDelegates so we need to refer that container.
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             // TODO proper error handling here!
+            print("Could not get app delegate.")
             return
         }
         

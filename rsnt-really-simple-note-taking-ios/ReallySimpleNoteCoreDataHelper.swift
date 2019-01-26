@@ -45,12 +45,33 @@ class ReallySimpleNoteCoreDataHelper {
     }
     
     static func readNotesFromCoreData(fromManagedObjectContext: NSManagedObjectContext) -> [ReallySimpleNote] {
-        return []
+
+        var returnedNotes = [ReallySimpleNote]()
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
+        fetchRequest.predicate = nil
+        
+        do {
+            let fetchedNotesFromCoreData = try fromManagedObjectContext.fetch(fetchRequest)
+            fetchedNotesFromCoreData.forEach { (fetchRequestResult) in
+                let noteManagedObjectRead = fetchRequestResult as! NSManagedObject
+                returnedNotes.append(ReallySimpleNote.init(
+                    noteTopic: noteManagedObjectRead.value(forKey: "noteTitle")     as! String,
+                    noteText:  noteManagedObjectRead.value(forKey: "noteText")      as! String,
+                    noteDate:  noteManagedObjectRead.value(forKey: "noteTimeStamp") as! String))
+            }
+        } catch let error as NSError {
+            // TODO error handling
+            print("Could not read. \(error), \(error.userInfo)")
+        }
+        
+        return returnedNotes
     }
     
     static func readNoteFromCoreData(
         noteToBeRead:             ReallySimpleNote,
         fromManagedObjectContext: NSManagedObjectContext) -> ReallySimpleNote? {
+
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
         
         let noteTitlePredicate = NSPredicate(format: "noteTitle = %@", noteToBeRead.noteTopic)
@@ -68,8 +89,8 @@ class ReallySimpleNoteCoreDataHelper {
             let noteManagedObjectToBeRead = fetchedNotesFromCoreData[0] as! NSManagedObject
             return ReallySimpleNote.init(
                 noteTopic: noteManagedObjectToBeRead.value(forKey: "noteTitle") as! String,
-                noteText: noteManagedObjectToBeRead.value(forKey: "noteTimeStamp") as! String,
-                noteDate: noteManagedObjectToBeRead.value(forKey: "noteText") as! String)
+                noteText: noteManagedObjectToBeRead.value(forKey: "noteText") as! String,
+                noteDate: noteManagedObjectToBeRead.value(forKey: "noteTimeStamp") as! String)
         } catch let error as NSError {
             // TODO error handling
             print("Could not read. \(error), \(error.userInfo)")
