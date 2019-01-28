@@ -56,9 +56,10 @@ class ReallySimpleNoteCoreDataHelper {
             fetchedNotesFromCoreData.forEach { (fetchRequestResult) in
                 let noteManagedObjectRead = fetchRequestResult as! NSManagedObject
                 returnedNotes.append(ReallySimpleNote.init(
-                    noteTopic: noteManagedObjectRead.value(forKey: "noteTitle")     as! String,
-                    noteText:  noteManagedObjectRead.value(forKey: "noteText")      as! String,
-                    noteDate:  noteManagedObjectRead.value(forKey: "noteTimeStamp") as! String))
+                    noteTopic:     noteManagedObjectRead.value(forKey: "noteTitle")     as! String,
+                    noteText:      noteManagedObjectRead.value(forKey: "noteText")      as! String,
+                    noteDate:      noteManagedObjectRead.value(forKey: "noteTimeStamp") as! String,
+                    noteTimeStamp: noteManagedObjectRead.value(forKey: "timeStamp")     as! Int64))
             }
         } catch let error as NSError {
             // TODO error handling
@@ -88,9 +89,10 @@ class ReallySimpleNoteCoreDataHelper {
             let fetchedNotesFromCoreData = try fromManagedObjectContext.fetch(fetchRequest)
             let noteManagedObjectToBeRead = fetchedNotesFromCoreData[0] as! NSManagedObject
             return ReallySimpleNote.init(
-                noteTopic: noteManagedObjectToBeRead.value(forKey: "noteTitle") as! String,
-                noteText: noteManagedObjectToBeRead.value(forKey: "noteText") as! String,
-                noteDate: noteManagedObjectToBeRead.value(forKey: "noteTimeStamp") as! String)
+                noteTopic:     noteManagedObjectToBeRead.value(forKey: "noteTitle")     as! String,
+                noteText:      noteManagedObjectToBeRead.value(forKey: "noteText")      as! String,
+                noteDate:      noteManagedObjectToBeRead.value(forKey: "noteTimeStamp") as! String,
+                noteTimeStamp: noteManagedObjectToBeRead.value(forKey: "timeStamp")     as! Int64)
         } catch let error as NSError {
             // TODO error handling
             print("Could not read. \(error), \(error.userInfo)")

@@ -31,9 +31,11 @@ class CreateNoteViewController : UIViewController, UITextViewDelegate {
     
     private func addItem() -> Void {
         let note = ReallySimpleNote(
-            noteTopic: noteTitleTextField.text!,
-            noteText: noteTextTextView.text,
-            noteDate: ReallySimpleNoteDateHelper.convertDate(date: NSDate()))
+            noteTopic:     noteTitleTextField.text!,
+            noteText:      noteTextTextView.text,
+            noteDate:      ReallySimpleNoteDateHelper.convertDate(date: NSDate()),
+            noteTimeStamp: Date().toMillis())
+
         ReallySimpleNoteStorage.storage.addNote(noteToBeAdded: note)
         
         performSegue(
