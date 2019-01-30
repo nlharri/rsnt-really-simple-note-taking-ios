@@ -15,9 +15,9 @@ class CreateNoteViewController : UIViewController, UITextViewDelegate {
     @IBOutlet weak var noteDoneButton: UIButton!
     @IBOutlet weak var noteDateLabel: UILabel!
     
+    private let noteCreationTimeStamp : Int64 = Date().toSeconds()
+    
     @IBAction func noteTitleChanged(_ sender: UITextField, forEvent event: UIEvent) {
-        //if sender.text?.isEmpty ?? true,
-        //   noteTextTextView.text?.isEmpty ?? true {
         if ( sender.text?.isEmpty ?? true ) || ( noteTextTextView.text?.isEmpty ?? true ) {
             noteDoneButton.isEnabled = false
         } else {
@@ -31,10 +31,9 @@ class CreateNoteViewController : UIViewController, UITextViewDelegate {
     
     private func addItem() -> Void {
         let note = ReallySimpleNote(
-            noteTopic:     noteTitleTextField.text!,
+            noteTitle:     noteTitleTextField.text!,
             noteText:      noteTextTextView.text,
-            //noteDate:      ReallySimpleNoteDateHelper.convertDate(date: NSDate()),
-            noteTimeStamp: Date().toMillis())
+            noteTimeStamp: noteCreationTimeStamp)
 
         ReallySimpleNoteStorage.storage.addNote(noteToBeAdded: note)
         
@@ -46,7 +45,7 @@ class CreateNoteViewController : UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         noteTextTextView.delegate = self
-        noteDateLabel.text = ReallySimpleNoteDateHelper.convertDate(date: NSDate())
+        noteDateLabel.text = ReallySimpleNoteDateHelper.convertDate(date: Date.init(seconds: noteCreationTimeStamp))
         noteTextTextView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
         noteTextTextView.layer.borderWidth = 1.0
         noteTextTextView.layer.cornerRadius = 5

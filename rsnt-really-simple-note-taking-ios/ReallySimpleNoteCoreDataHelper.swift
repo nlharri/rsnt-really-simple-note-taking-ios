@@ -25,7 +25,7 @@ class ReallySimpleNoteCoreDataHelper {
             insertInto: intoManagedObjectContext)
         
         newNoteToBeCreated.setValue(
-            noteToBeCreated.noteTopic,
+            noteToBeCreated.noteTitle,
             forKey: "noteTitle")
         
         newNoteToBeCreated.setValue(
@@ -34,7 +34,7 @@ class ReallySimpleNoteCoreDataHelper {
         
         newNoteToBeCreated.setValue(
             noteToBeCreated.noteTimeStamp,
-            forKey: "timeStamp")
+            forKey: "noteTimeStamp")
         
         do {
             try intoManagedObjectContext.save()
@@ -56,10 +56,9 @@ class ReallySimpleNoteCoreDataHelper {
             fetchedNotesFromCoreData.forEach { (fetchRequestResult) in
                 let noteManagedObjectRead = fetchRequestResult as! NSManagedObject
                 returnedNotes.append(ReallySimpleNote.init(
-                    noteTopic:     noteManagedObjectRead.value(forKey: "noteTitle")     as! String,
-                    noteText:      noteManagedObjectRead.value(forKey: "noteText")      as! String,
-                    //noteDate:      noteManagedObjectRead.value(forKey: "noteTimeStamp") as! String,
-                    noteTimeStamp: noteManagedObjectRead.value(forKey: "timeStamp")     as! Int64))
+                    noteTitle:     noteManagedObjectRead.value(forKey: "noteTitle") as! String,
+                    noteText:      noteManagedObjectRead.value(forKey: "noteText")  as! String,
+                    noteTimeStamp: noteManagedObjectRead.value(forKey: "noteTimeStamp") as! Int64))
             }
         } catch let error as NSError {
             // TODO error handling
@@ -75,25 +74,20 @@ class ReallySimpleNoteCoreDataHelper {
 
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
         
-        let noteTitlePredicate = NSPredicate(format: "noteTitle = %@", noteToBeRead.noteTopic)
+        let noteTitlePredicate = NSPredicate(format: "noteTitle = %@", noteToBeRead.noteTitle)
         
         let noteTextPredicate = NSPredicate(format: "noteText = %@", noteToBeRead.noteText)
         
-        //let noteTimeStampPredicate = NSPredicate(format: "noteTimeStamp = %@", noteToBeRead.noteDate)
-
         fetchRequest.predicate = NSCompoundPredicate(
             andPredicateWithSubpredicates: [noteTitlePredicate,
-                                            noteTextPredicate,
-                                            //noteTimeStampPredicate
-            ])
+                                            noteTextPredicate])
         do {
             let fetchedNotesFromCoreData = try fromManagedObjectContext.fetch(fetchRequest)
             let noteManagedObjectToBeRead = fetchedNotesFromCoreData[0] as! NSManagedObject
             return ReallySimpleNote.init(
-                noteTopic:     noteManagedObjectToBeRead.value(forKey: "noteTitle")     as! String,
+                noteTitle:     noteManagedObjectToBeRead.value(forKey: "noteTitle")     as! String,
                 noteText:      noteManagedObjectToBeRead.value(forKey: "noteText")      as! String,
-                //noteDate:      noteManagedObjectToBeRead.value(forKey: "noteTimeStamp") as! String,
-                noteTimeStamp: noteManagedObjectToBeRead.value(forKey: "timeStamp")     as! Int64)
+                noteTimeStamp: noteManagedObjectToBeRead.value(forKey: "noteTimeStamp")     as! Int64)
         } catch let error as NSError {
             // TODO error handling
             print("Could not read. \(error), \(error.userInfo)")
@@ -107,17 +101,13 @@ class ReallySimpleNoteCoreDataHelper {
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
         
-        let noteTitlePredicate = NSPredicate(format: "noteTitle = %@", noteToBeDeleted.noteTopic)
+        let noteTitlePredicate = NSPredicate(format: "noteTitle = %@", noteToBeDeleted.noteTitle)
         
         let noteTextPredicate = NSPredicate(format: "noteText = %@", noteToBeDeleted.noteText)
-
-        //let noteTimeStampPredicate = NSPredicate(format: "noteTimeStamp = %@", noteToBeDeleted.noteDate)
         
         fetchRequest.predicate = NSCompoundPredicate(
             andPredicateWithSubpredicates: [noteTitlePredicate,
-                                            noteTextPredicate,
-                                            //noteTimeStampPredicate
-            ])
+                                            noteTextPredicate])
         
         do {
             let fetchedNotesFromCoreData = try fromManagedObjectContext.fetch(fetchRequest)

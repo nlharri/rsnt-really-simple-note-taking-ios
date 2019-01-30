@@ -82,10 +82,9 @@ class MasterViewController: UITableViewController {
 
         //let object = objects[indexPath.row]
         let object = ReallySimpleNoteStorage.storage.readNote(at: indexPath.row)
-        cell.noteTopicLabel!.text = object.noteTopic
+        cell.noteTitleLabel!.text = object.noteTitle
         cell.noteTextLabel!.text = object.noteText
-        //cell.noteDateLabel!.text = object.noteDate
-        cell.noteDateLabel!.text = ReallySimpleNoteDateHelper.convertDate(date: Date.init(milliseconds: object.noteTimeStamp))
+        cell.noteDateLabel!.text = ReallySimpleNoteDateHelper.convertDate(date: Date.init(seconds: object.noteTimeStamp))
         return cell
     }
 
