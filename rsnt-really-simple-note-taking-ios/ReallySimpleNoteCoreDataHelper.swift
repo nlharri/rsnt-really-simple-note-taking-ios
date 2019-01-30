@@ -33,8 +33,8 @@ class ReallySimpleNoteCoreDataHelper {
             forKey: "noteText")
         
         newNoteToBeCreated.setValue(
-            noteToBeCreated.noteDate,
-            forKey: "noteTimeStamp")
+            noteToBeCreated.noteTimeStamp,
+            forKey: "timeStamp")
         
         do {
             try intoManagedObjectContext.save()
@@ -58,7 +58,7 @@ class ReallySimpleNoteCoreDataHelper {
                 returnedNotes.append(ReallySimpleNote.init(
                     noteTopic:     noteManagedObjectRead.value(forKey: "noteTitle")     as! String,
                     noteText:      noteManagedObjectRead.value(forKey: "noteText")      as! String,
-                    noteDate:      noteManagedObjectRead.value(forKey: "noteTimeStamp") as! String,
+                    //noteDate:      noteManagedObjectRead.value(forKey: "noteTimeStamp") as! String,
                     noteTimeStamp: noteManagedObjectRead.value(forKey: "timeStamp")     as! Int64))
             }
         } catch let error as NSError {
@@ -79,19 +79,20 @@ class ReallySimpleNoteCoreDataHelper {
         
         let noteTextPredicate = NSPredicate(format: "noteText = %@", noteToBeRead.noteText)
         
-        let noteTimeStampPredicate = NSPredicate(format: "noteTimeStamp = %@", noteToBeRead.noteDate)
-        
+        //let noteTimeStampPredicate = NSPredicate(format: "noteTimeStamp = %@", noteToBeRead.noteDate)
+
         fetchRequest.predicate = NSCompoundPredicate(
             andPredicateWithSubpredicates: [noteTitlePredicate,
                                             noteTextPredicate,
-                                            noteTimeStampPredicate])
+                                            //noteTimeStampPredicate
+            ])
         do {
             let fetchedNotesFromCoreData = try fromManagedObjectContext.fetch(fetchRequest)
             let noteManagedObjectToBeRead = fetchedNotesFromCoreData[0] as! NSManagedObject
             return ReallySimpleNote.init(
                 noteTopic:     noteManagedObjectToBeRead.value(forKey: "noteTitle")     as! String,
                 noteText:      noteManagedObjectToBeRead.value(forKey: "noteText")      as! String,
-                noteDate:      noteManagedObjectToBeRead.value(forKey: "noteTimeStamp") as! String,
+                //noteDate:      noteManagedObjectToBeRead.value(forKey: "noteTimeStamp") as! String,
                 noteTimeStamp: noteManagedObjectToBeRead.value(forKey: "timeStamp")     as! Int64)
         } catch let error as NSError {
             // TODO error handling
@@ -110,12 +111,13 @@ class ReallySimpleNoteCoreDataHelper {
         
         let noteTextPredicate = NSPredicate(format: "noteText = %@", noteToBeDeleted.noteText)
 
-        let noteTimeStampPredicate = NSPredicate(format: "noteTimeStamp = %@", noteToBeDeleted.noteDate)
+        //let noteTimeStampPredicate = NSPredicate(format: "noteTimeStamp = %@", noteToBeDeleted.noteDate)
         
         fetchRequest.predicate = NSCompoundPredicate(
             andPredicateWithSubpredicates: [noteTitlePredicate,
                                             noteTextPredicate,
-                                            noteTimeStampPredicate])
+                                            //noteTimeStampPredicate
+            ])
         
         do {
             let fetchedNotesFromCoreData = try fromManagedObjectContext.fetch(fetchRequest)

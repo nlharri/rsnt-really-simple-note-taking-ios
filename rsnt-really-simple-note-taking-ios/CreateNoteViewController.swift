@@ -33,7 +33,7 @@ class CreateNoteViewController : UIViewController, UITextViewDelegate {
         let note = ReallySimpleNote(
             noteTopic:     noteTitleTextField.text!,
             noteText:      noteTextTextView.text,
-            noteDate:      ReallySimpleNoteDateHelper.convertDate(date: NSDate()),
+            //noteDate:      ReallySimpleNoteDateHelper.convertDate(date: NSDate()),
             noteTimeStamp: Date().toMillis())
 
         ReallySimpleNoteStorage.storage.addNote(noteToBeAdded: note)

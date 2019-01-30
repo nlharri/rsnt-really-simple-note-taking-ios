@@ -21,7 +21,7 @@ class DetailViewController: UIViewController {
                let dateLabel = noteDate,
                let textView = noteTextTextView {
                 topicLabel.text = detail.noteTopic
-                dateLabel.text = detail.noteDate
+                dateLabel.text = ReallySimpleNoteDateHelper.convertDate(date: Date.init(milliseconds: detail.noteTimeStamp))
                 textView.text = detail.noteText
             }
         }

@@ -3,11 +3,10 @@
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="noteId" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="noteText" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="noteTimeStamp" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="noteTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Note" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Note" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>
