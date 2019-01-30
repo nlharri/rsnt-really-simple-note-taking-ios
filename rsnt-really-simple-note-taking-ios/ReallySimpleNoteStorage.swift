@@ -12,11 +12,16 @@ class ReallySimpleNoteStorage {
     static let storage : ReallySimpleNoteStorage = ReallySimpleNoteStorage()
     
     private var notes : [ReallySimpleNote]
+    private var noteIndexToIdDict : [Int:UUID] = [:]
+    private var currentIndex : Int = 0
+
     private(set) var managedObjectContext : NSManagedObjectContext
     private var managedContextHasBeenSet : Bool = false
     
     private init() {
         notes = [ReallySimpleNote]()
+        // we need to init our ManagedObjectContext
+        // This will be overwritten when setManagedContext is called from the view controller.
         managedObjectContext = NSManagedObjectContext(
             concurrencyType: NSManagedObjectContextConcurrencyType.mainQueueConcurrencyType)
     }
@@ -28,7 +33,11 @@ class ReallySimpleNoteStorage {
     }
     
     func addNote(noteToBeAdded: ReallySimpleNote) {
+        // increase index
+        currentIndex += 1
         notes.append(noteToBeAdded)
+        // add note UUID to the dictionary
+        noteIndexToIdDict[currentIndex] = noteToBeAdded.noteId
         if managedContextHasBeenSet {
             ReallySimpleNoteCoreDataHelper.createNoteInCoreData(
                 noteToBeCreated:          noteToBeAdded,
@@ -37,15 +46,34 @@ class ReallySimpleNoteStorage {
     }
     
     func removeNote(at: Int) {
+        // check input index
+        if at < 0 || at > currentIndex-1 {
+            // TODO error handling
+            return
+        }
+        // get note UUID from the dictionary
+        let noteUUID = noteIndexToIdDict[at]
+        // TODO remove by UUID instead of by Note instance itself!!
         let noteToBeRemoved = notes.remove(at: at)
         if managedContextHasBeenSet {
             ReallySimpleNoteCoreDataHelper.deleteNoteFromCoreData(
                 noteToBeDeleted:          noteToBeRemoved,
                 fromManagedObjectContext: self.managedObjectContext)
         }
+        // decrease current index in case of successful remove 
+        currentIndex -= 1
     }
     
     func readNote(at: Int) -> ReallySimpleNote {
+        // check input index
+        if at < 0 || at > currentIndex-1 {
+            // TODO error handling
+            //eturn nil
+        }
+        // get note UUID from the dictionary
+        let noteUUID = noteIndexToIdDict[at]
+        // TODO read by UUID instead of by Note index
+
         let noteRead = notes[at]
         if managedContextHasBeenSet {
             let noteReadFromCoreData: ReallySimpleNote?
