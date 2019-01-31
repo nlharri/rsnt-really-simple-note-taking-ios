@@ -30,6 +30,11 @@ class ReallySimpleNoteStorage {
         self.managedObjectContext = managedObjectContext
         self.managedContextHasBeenSet = true
         self.notes = ReallySimpleNoteCoreDataHelper.readNotesFromCoreData(fromManagedObjectContext: self.managedObjectContext)
+        currentIndex = ReallySimpleNoteCoreDataHelper.count
+        let notes = self.notes
+        for (index, note) in notes.enumerated() {
+            noteIndexToIdDict[index] = note.noteId
+        }
     }
     
     func addNote(noteToBeAdded: ReallySimpleNote) {
@@ -54,11 +59,16 @@ class ReallySimpleNoteStorage {
         // get note UUID from the dictionary
         let noteUUID = noteIndexToIdDict[at]
         // TODO remove by UUID instead of by Note instance itself!!
-        let noteToBeRemoved = notes.remove(at: at)
+        //let noteToBeRemoved = notes.remove(at: at)
         if managedContextHasBeenSet {
+            ReallySimpleNoteCoreDataHelper.deleteNoteFromCoreData(
+                noteIdToBeDeleted:        noteUUID!,
+                fromManagedObjectContext: self.managedObjectContext)
+            /*
             ReallySimpleNoteCoreDataHelper.deleteNoteFromCoreData(
                 noteToBeDeleted:          noteToBeRemoved,
                 fromManagedObjectContext: self.managedObjectContext)
+            */
         }
         // decrease current index in case of successful remove 
         currentIndex -= 1
