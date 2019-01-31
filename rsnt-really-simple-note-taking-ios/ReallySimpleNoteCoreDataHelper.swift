@@ -79,6 +79,7 @@ class ReallySimpleNoteCoreDataHelper {
         return returnedNotes
     }
     
+    
     static func readNoteFromCoreData(
         noteToBeRead:             ReallySimpleNote,
         fromManagedObjectContext: NSManagedObjectContext) -> ReallySimpleNote? {
@@ -132,38 +133,38 @@ class ReallySimpleNoteCoreDataHelper {
         }
     }
 
-    static func deleteNoteFromCoreData(
-        noteToBeDeleted:          ReallySimpleNote,
-        fromManagedObjectContext: NSManagedObjectContext) {
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
-        
-        let noteTitlePredicate = NSPredicate(format: "noteTitle = %@", noteToBeDeleted.noteTitle)
-        
-        let noteTextPredicate = NSPredicate(format: "noteText = %@", noteToBeDeleted.noteText)
-        
-        fetchRequest.predicate = NSCompoundPredicate(
-            andPredicateWithSubpredicates: [noteTitlePredicate,
-                                            noteTextPredicate])
-        
-        do {
-            let fetchedNotesFromCoreData = try fromManagedObjectContext.fetch(fetchRequest)
-            let noteManagedObjectToBeDeleted = fetchedNotesFromCoreData[0] as! NSManagedObject
-            fromManagedObjectContext.delete(noteManagedObjectToBeDeleted)
-            
-            do {
-                try fromManagedObjectContext.save()
-                self.count -= 1
-            } catch let error as NSError {
-                // TODO error handling
-                print("Could not save. \(error), \(error.userInfo)")
-            }
-        } catch let error as NSError {
-            // TODO error handling
-            print("Could not delete. \(error), \(error.userInfo)")
-        }
-        
-    }
+//    static func deleteNoteFromCoreData(
+//        noteToBeDeleted:          ReallySimpleNote,
+//        fromManagedObjectContext: NSManagedObjectContext) {
+//
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
+//
+//        let noteTitlePredicate = NSPredicate(format: "noteTitle = %@", noteToBeDeleted.noteTitle)
+//
+//        let noteTextPredicate = NSPredicate(format: "noteText = %@", noteToBeDeleted.noteText)
+//
+//        fetchRequest.predicate = NSCompoundPredicate(
+//            andPredicateWithSubpredicates: [noteTitlePredicate,
+//                                            noteTextPredicate])
+//
+//        do {
+//            let fetchedNotesFromCoreData = try fromManagedObjectContext.fetch(fetchRequest)
+//            let noteManagedObjectToBeDeleted = fetchedNotesFromCoreData[0] as! NSManagedObject
+//            fromManagedObjectContext.delete(noteManagedObjectToBeDeleted)
+//
+//            do {
+//                try fromManagedObjectContext.save()
+//                self.count -= 1
+//            } catch let error as NSError {
+//                // TODO error handling
+//                print("Could not save. \(error), \(error.userInfo)")
+//            }
+//        } catch let error as NSError {
+//            // TODO error handling
+//            print("Could not delete. \(error), \(error.userInfo)")
+//        }
+//
+//    }
 
     static func deleteNoteFromCoreData(
         noteIdToBeDeleted:        UUID,

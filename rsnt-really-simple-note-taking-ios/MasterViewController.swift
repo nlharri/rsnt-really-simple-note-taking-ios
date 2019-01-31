@@ -80,11 +80,11 @@ class MasterViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ReallySimpleNoteUITableViewCell
 
-        //let object = objects[indexPath.row]
-        let object = ReallySimpleNoteStorage.storage.readNote(at: indexPath.row)
+        if let object = ReallySimpleNoteStorage.storage.readNote(at: indexPath.row) {
         cell.noteTitleLabel!.text = object.noteTitle
         cell.noteTextLabel!.text = object.noteText
-        cell.noteDateLabel!.text = ReallySimpleNoteDateHelper.convertDate(date: Date.init(seconds: object.noteTimeStamp))
+            cell.noteDateLabel!.text = ReallySimpleNoteDateHelper.convertDate(date: Date.init(seconds: object.noteTimeStamp))
+        }
         return cell
     }
 
