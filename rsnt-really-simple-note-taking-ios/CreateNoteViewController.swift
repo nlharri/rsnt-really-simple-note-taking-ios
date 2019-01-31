@@ -49,6 +49,11 @@ class CreateNoteViewController : UIViewController, UITextViewDelegate {
         noteTextTextView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
         noteTextTextView.layer.borderWidth = 1.0
         noteTextTextView.layer.cornerRadius = 5
+
+        // For back button in navigation bar
+        let backButton = UIBarButtonItem()
+        backButton.title = "Back"
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
 
     func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
@@ -59,4 +64,9 @@ class CreateNoteViewController : UIViewController, UITextViewDelegate {
         }
     }
 
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "backToMasterView" {
+//            addItem()
+//        }
+//    }
 }
