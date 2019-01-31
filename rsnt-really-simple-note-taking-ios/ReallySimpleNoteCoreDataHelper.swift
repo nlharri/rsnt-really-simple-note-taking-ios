@@ -44,6 +44,7 @@ class ReallySimpleNoteCoreDataHelper {
         
         do {
             try intoManagedObjectContext.save()
+            count += 1
         } catch let error as NSError {
             // TODO error handling
             print("Could not save. \(error), \(error.userInfo)")
@@ -152,6 +153,7 @@ class ReallySimpleNoteCoreDataHelper {
             
             do {
                 try fromManagedObjectContext.save()
+                self.count -= 1
             } catch let error as NSError {
                 // TODO error handling
                 print("Could not save. \(error), \(error.userInfo)")
@@ -181,6 +183,7 @@ class ReallySimpleNoteCoreDataHelper {
             
             do {
                 try fromManagedObjectContext.save()
+                self.count -= 1
             } catch let error as NSError {
                 // TODO error handling
                 print("Could not save. \(error), \(error.userInfo)")

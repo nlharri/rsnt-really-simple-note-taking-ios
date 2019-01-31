@@ -96,6 +96,7 @@ class ReallySimpleNoteStorage {
     }
     
     func count() -> Int {
-        return notes.count
+        //return notes.count
+        return ReallySimpleNoteCoreDataHelper.count
     }
 }
