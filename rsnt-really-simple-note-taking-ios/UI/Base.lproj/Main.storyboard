@@ -41,7 +41,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Note Text" translatesAutoresizingMaskIntoConstraints="NO" id="Zxg-qG-x94" userLabel="Note Text View">
-                                <rect key="frame" x="16" y="152" width="343" height="499"/>
+                                <rect key="frame" x="16" y="152" width="343" height="445"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -52,19 +52,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpY-fw-8fX">
+                                <rect key="frame" x="20" y="605" width="335" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="✎ Edit"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="lpY-fw-8fX" secondAttribute="trailing" constant="20" id="0bg-c5-vVu"/>
                             <constraint firstItem="Nkq-dP-66J" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="16" id="AyE-Bg-ib3"/>
                             <constraint firstItem="Zxg-qG-x94" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="16" id="GpF-vd-FMl"/>
                             <constraint firstItem="Zxg-qG-x94" firstAttribute="top" secondItem="Nkq-dP-66J" secondAttribute="bottom" constant="8" id="IEm-93-RZE"/>
+                            <constraint firstItem="lpY-fw-8fX" firstAttribute="top" secondItem="Zxg-qG-x94" secondAttribute="bottom" constant="8" id="LGE-fm-hSg"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="Zxg-qG-x94" secondAttribute="trailing" constant="16" id="S6t-Ou-UHD"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="Nkq-dP-66J" secondAttribute="trailing" constant="16" id="SMn-2D-L8u"/>
                             <constraint firstItem="1Uh-6m-Vox" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" constant="20" id="Y21-1G-jMW"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="1Uh-6m-Vox" secondAttribute="trailing" constant="20" id="f7P-Wx-bva"/>
                             <constraint firstItem="1Uh-6m-Vox" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="20" id="kic-Wa-9ng"/>
-                            <constraint firstItem="VUw-jc-0yf" firstAttribute="bottom" secondItem="Zxg-qG-x94" secondAttribute="bottom" constant="16" id="rIt-1h-tmM"/>
+                            <constraint firstItem="lpY-fw-8fX" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="20" id="kua-1z-qbi"/>
                             <constraint firstItem="Nkq-dP-66J" firstAttribute="top" secondItem="1Uh-6m-Vox" secondAttribute="bottom" constant="8" id="s0a-dS-xTc"/>
+                            <constraint firstItem="VUw-jc-0yf" firstAttribute="bottom" secondItem="lpY-fw-8fX" secondAttribute="bottom" constant="20" id="uoc-dx-1A0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VUw-jc-0yf"/>
                     </view>
@@ -125,7 +133,7 @@
                                 </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0j-ww-jez">
-                                <rect key="frame" x="16" y="124" width="343" height="467"/>
+                                <rect key="frame" x="16" y="124" width="343" height="473"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -137,8 +145,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcf-CU-5cX">
-                                <rect key="frame" x="16" y="599" width="343" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <rect key="frame" x="16" y="605" width="343" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="✓ OK"/>
                                 <connections>
                                     <action selector="doneButtonClicked:forEvent:" destination="pJp-4i-4zG" eventType="touchUpInside" id="dim-uj-OVT"/>
