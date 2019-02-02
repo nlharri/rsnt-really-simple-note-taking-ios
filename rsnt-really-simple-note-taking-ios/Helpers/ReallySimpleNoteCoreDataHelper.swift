@@ -51,6 +51,87 @@ class ReallySimpleNoteCoreDataHelper {
         }
     }
     
+    static func changeNoteInCoreData(
+        noteToBeChanged:        ReallySimpleNote,
+        inManagedObjectContext: NSManagedObjectContext) {
+        
+        // read managed object
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
+        
+        let noteIdPredicate = NSPredicate(format: "noteId = %@", noteToBeChanged as CVarArg)
+        
+        fetchRequest.predicate = noteIdPredicate
+        
+        do {
+            let fetchedNotesFromCoreData = try inManagedObjectContext.fetch(fetchRequest)
+            let noteManagedObjectToBeChanged = fetchedNotesFromCoreData[0] as! NSManagedObject
+            //        newNoteToBeCreated.setValue(
+            //            noteToBeCreated.noteId,
+            //            forKey: "noteId")
+            //
+            //        newNoteToBeCreated.setValue(
+            //            noteToBeCreated.noteTitle,
+            //            forKey: "noteTitle")
+            //
+            //        newNoteToBeCreated.setValue(
+            //            noteToBeCreated.noteText,
+            //            forKey: "noteText")
+            //
+            //        newNoteToBeCreated.setValue(
+            //            noteToBeCreated.noteTimeStamp,
+            //            forKey: "noteTimeStamp")
+
+            //return ReallySimpleNote.init(
+            //    noteId:        noteManagedObjectToBeRead.value(forKey: "noteId")        as! UUID,
+//                noteTitle:     noteManagedObjectToBeRead.value(forKey: "noteTitle")     as! String,
+  //              noteText:      noteManagedObjectToBeRead.value(forKey: "noteText")      as! String,
+    //            noteTimeStamp: noteManagedObjectToBeRead.value(forKey: "noteTimeStamp") as! Int64)
+        } catch let error as NSError {
+            // TODO error handling
+            print("Could not read. \(error), \(error.userInfo)")
+            return nil
+        }
+
+        
+//        let readNoteFromCoreData(
+//            noteIdToBeRead: noteToBeChanged.noteId,
+//            fromManagedObjectContext: inManagedObjectContext)
+//
+//        // Let’s create an entity and new note record
+//        let noteEntity = NSEntityDescription.entity(
+//            forEntityName: "Note",
+//            in:            intoManagedObjectContext)!
+//
+//        let noteToBeChanged = NSManagedObject(
+//            entity:     noteEntity,
+//            insertInto: intoManagedObjectContext)
+//
+//        newNoteToBeCreated.setValue(
+//            noteToBeCreated.noteId,
+//            forKey: "noteId")
+//
+//        newNoteToBeCreated.setValue(
+//            noteToBeCreated.noteTitle,
+//            forKey: "noteTitle")
+//
+//        newNoteToBeCreated.setValue(
+//            noteToBeCreated.noteText,
+//            forKey: "noteText")
+//
+//        newNoteToBeCreated.setValue(
+//            noteToBeCreated.noteTimeStamp,
+//            forKey: "noteTimeStamp")
+//
+//        do {
+//            try intoManagedObjectContext.save()
+//            count += 1
+//        } catch let error as NSError {
+//            // TODO error handling
+//            print("Could not save. \(error), \(error.userInfo)")
+//        }
+    }
+    
     static func readNotesFromCoreData(fromManagedObjectContext: NSManagedObjectContext) -> [ReallySimpleNote] {
 
         var returnedNotes = [ReallySimpleNote]()
@@ -80,33 +161,33 @@ class ReallySimpleNoteCoreDataHelper {
     }
     
     
-    static func readNoteFromCoreData(
-        noteToBeRead:             ReallySimpleNote,
-        fromManagedObjectContext: NSManagedObjectContext) -> ReallySimpleNote? {
-
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
-        
-        let noteTitlePredicate = NSPredicate(format: "noteTitle = %@", noteToBeRead.noteTitle)
-        
-        let noteTextPredicate = NSPredicate(format: "noteText = %@", noteToBeRead.noteText)
-        
-        fetchRequest.predicate = NSCompoundPredicate(
-            andPredicateWithSubpredicates: [noteTitlePredicate,
-                                            noteTextPredicate])
-        do {
-            let fetchedNotesFromCoreData = try fromManagedObjectContext.fetch(fetchRequest)
-            let noteManagedObjectToBeRead = fetchedNotesFromCoreData[0] as! NSManagedObject
-            return ReallySimpleNote.init(
-                noteId:        noteManagedObjectToBeRead.value(forKey: "noteId")        as! UUID,
-                noteTitle:     noteManagedObjectToBeRead.value(forKey: "noteTitle")     as! String,
-                noteText:      noteManagedObjectToBeRead.value(forKey: "noteText")      as! String,
-                noteTimeStamp: noteManagedObjectToBeRead.value(forKey: "noteTimeStamp") as! Int64)
-        } catch let error as NSError {
-            // TODO error handling
-            print("Could not read. \(error), \(error.userInfo)")
-            return nil
-        }
-    }
+//    static func readNoteFromCoreData(
+//        noteToBeRead:             ReallySimpleNote,
+//        fromManagedObjectContext: NSManagedObjectContext) -> ReallySimpleNote? {
+//
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
+//
+//        let noteTitlePredicate = NSPredicate(format: "noteTitle = %@", noteToBeRead.noteTitle)
+//
+//        let noteTextPredicate = NSPredicate(format: "noteText = %@", noteToBeRead.noteText)
+//
+//        fetchRequest.predicate = NSCompoundPredicate(
+//            andPredicateWithSubpredicates: [noteTitlePredicate,
+//                                            noteTextPredicate])
+//        do {
+//            let fetchedNotesFromCoreData = try fromManagedObjectContext.fetch(fetchRequest)
+//            let noteManagedObjectToBeRead = fetchedNotesFromCoreData[0] as! NSManagedObject
+//            return ReallySimpleNote.init(
+//                noteId:        noteManagedObjectToBeRead.value(forKey: "noteId")        as! UUID,
+//                noteTitle:     noteManagedObjectToBeRead.value(forKey: "noteTitle")     as! String,
+//                noteText:      noteManagedObjectToBeRead.value(forKey: "noteText")      as! String,
+//                noteTimeStamp: noteManagedObjectToBeRead.value(forKey: "noteTimeStamp") as! Int64)
+//        } catch let error as NSError {
+//            // TODO error handling
+//            print("Could not read. \(error), \(error.userInfo)")
+//            return nil
+//        }
+//    }
 
     static func readNoteFromCoreData(
         noteIdToBeRead:           UUID,

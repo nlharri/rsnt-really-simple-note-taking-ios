@@ -81,6 +81,27 @@ class ReallySimpleNoteStorage {
         return nil
     }
     
+    func changeNote(noteToBeChanged: ReallySimpleNote) {
+        // check if UUID is in the dictionary
+        var noteToBeChangedIndex : Int?
+        noteIndexToIdDict.forEach { (index: Int, noteId: UUID) in
+            if noteId == noteToBeChanged.noteId {
+                noteToBeChangedIndex = index
+                return
+            }
+        }
+        if noteToBeChangedIndex != nil {
+            if managedContextHasBeenSet {
+             //   ReallySimpleNoteCoreDataHelper.createNoteInCoreData(
+             //       noteToBeCreated:          noteToBeAdded,
+             //       intoManagedObjectContext: self.managedObjectContext)
+            }
+        } else {
+            // TODO error handling
+        }
+    }
+
+    
     func count() -> Int {
         return ReallySimpleNoteCoreDataHelper.count
     }

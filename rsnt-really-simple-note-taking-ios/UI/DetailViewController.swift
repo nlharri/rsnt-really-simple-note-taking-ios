@@ -40,6 +40,14 @@ class DetailViewController: UIViewController {
         }
     }
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showChangeNoteSegue" {
+            let changeNoteViewController = segue.destination as! ReallySimpleNoteCreateViewController
+            if let detail = detailItem {
+                changeNoteViewController.setChangingReallySimpleNote(
+                    changingReallySimpleNote: detail)
+            }
+        }
+    }
 }
 
