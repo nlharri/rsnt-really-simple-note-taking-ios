@@ -56,7 +56,11 @@ class ReallySimpleNoteCreateViewController : UIViewController, UITextViewDelegat
 
     private func changeItem() -> Void {
         if let changingReallySimpleNote = self.changingReallySimpleNote {
-            ReallySimpleNoteStorage.storage.changeNote(noteToBeChanged: changingReallySimpleNote)
+            ReallySimpleNoteStorage.storage.changeNote(noteToBeChanged: ReallySimpleNote(
+                noteId:        changingReallySimpleNote.noteId,
+                noteTitle:     noteTitleTextField.text!,
+                noteText:      noteTextTextView.text,
+                noteTimeStamp: noteCreationTimeStamp))
         } else {
             // TODO error handling
         }
@@ -75,7 +79,7 @@ class ReallySimpleNoteCreateViewController : UIViewController, UITextViewDelegat
         // check if we are in create mode or in change mode
         if let changingReallySimpleNote = self.changingReallySimpleNote {
             // in change mode: initialize for fields with data coming from note to be changed
-            noteDateLabel.text = ReallySimpleNoteDateHelper.convertDate(date: Date.init(seconds: changingReallySimpleNote.noteTimeStamp))
+            noteDateLabel.text = ReallySimpleNoteDateHelper.convertDate(date: Date.init(seconds: noteCreationTimeStamp))
             noteTextTextView.text = changingReallySimpleNote.noteText
             noteTitleTextField.text = changingReallySimpleNote.noteTitle
         } else {
