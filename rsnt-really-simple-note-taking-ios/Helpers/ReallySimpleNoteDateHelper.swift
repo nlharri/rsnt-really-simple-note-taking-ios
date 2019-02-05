@@ -19,7 +19,7 @@ class ReallySimpleNoteDateHelper {
         let myString = formatter.string(from: date) // string purpose I add here
         // convert your string to date
         let yourDate = formatter.date(from: myString)
-        //then again set the date format whhich type of output you need
+        //then again set the date format which type of output you need
         formatter.dateFormat = "EEEE, MMM d, yyyy, hh:mm:ss"
         // again convert your date to string
         let myStringafd = formatter.string(from: yourDate!)

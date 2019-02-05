@@ -56,11 +56,13 @@ class ReallySimpleNoteCreateChangeViewController : UIViewController, UITextViewD
 
     private func changeItem() -> Void {
         if let changingReallySimpleNote = self.changingReallySimpleNote {
-            ReallySimpleNoteStorage.storage.changeNote(noteToBeChanged: ReallySimpleNote(
-                noteId:        changingReallySimpleNote.noteId,
-                noteTitle:     noteTitleTextField.text!,
-                noteText:      noteTextTextView.text,
-                noteTimeStamp: noteCreationTimeStamp))
+            ReallySimpleNoteStorage.storage.changeNote(
+                noteToBeChanged: ReallySimpleNote(
+                    noteId:        changingReallySimpleNote.noteId,
+                    noteTitle:     noteTitleTextField.text!,
+                    noteText:      noteTextTextView.text,
+                	noteTimeStamp: noteCreationTimeStamp)
+            )
         } else {
             // TODO error handling
         }
