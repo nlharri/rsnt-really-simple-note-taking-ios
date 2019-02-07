@@ -19,10 +19,16 @@ class ReallySimpleNoteCreateChangeViewController : UIViewController, UITextViewD
     private(set) var changingReallySimpleNote : ReallySimpleNote?
 
     @IBAction func noteTitleChanged(_ sender: UITextField, forEvent event: UIEvent) {
-        if ( sender.text?.isEmpty ?? true ) || ( noteTextTextView.text?.isEmpty ?? true ) {
-            noteDoneButton.isEnabled = false
-        } else {
+        if self.changingReallySimpleNote != nil {
+            // change mode
             noteDoneButton.isEnabled = true
+        } else {
+            // create mode
+            if ( sender.text?.isEmpty ?? true ) || ( noteTextTextView.text?.isEmpty ?? true ) {
+                noteDoneButton.isEnabled = false
+            } else {
+                noteDoneButton.isEnabled = true
+            }
         }
     }
     
@@ -98,6 +104,8 @@ class ReallySimpleNoteCreateChangeViewController : UIViewController, UITextViewD
             noteDateLabel.text = ReallySimpleNoteDateHelper.convertDate(date: Date.init(seconds: noteCreationTimeStamp))
             noteTextTextView.text = changingReallySimpleNote.noteText
             noteTitleTextField.text = changingReallySimpleNote.noteTitle
+            // enable done button by default
+            noteDoneButton.isEnabled = true
         } else {
             // in create mode: set initial time stamp label
             noteDateLabel.text = ReallySimpleNoteDateHelper.convertDate(date: Date.init(seconds: noteCreationTimeStamp))
@@ -114,17 +122,19 @@ class ReallySimpleNoteCreateChangeViewController : UIViewController, UITextViewD
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
 
-    func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
-        if ( noteTitleTextField.text?.isEmpty ?? true ) || ( textView.text?.isEmpty ?? true ) {
-            noteDoneButton.isEnabled = false
-        } else {
+    //Handle the text changes here
+    func textViewDidChange(_ textView: UITextView) {
+        if self.changingReallySimpleNote != nil {
+            // change mode
             noteDoneButton.isEnabled = true
+        } else {
+            // create mode
+            if ( noteTitleTextField.text?.isEmpty ?? true ) || ( textView.text?.isEmpty ?? true ) {
+                noteDoneButton.isEnabled = false
+            } else {
+                noteDoneButton.isEnabled = true
+            }
         }
     }
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "backToMasterView" {
-//            addItem()
-//        }
-//    }
 }
