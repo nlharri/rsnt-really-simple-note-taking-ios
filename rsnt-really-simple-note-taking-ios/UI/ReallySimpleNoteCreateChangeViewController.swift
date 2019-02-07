@@ -55,21 +55,35 @@ class ReallySimpleNoteCreateChangeViewController : UIViewController, UITextViewD
     }
 
     private func changeItem() -> Void {
+        // get changed note instance
         if let changingReallySimpleNote = self.changingReallySimpleNote {
+            // change the note through note storage
             ReallySimpleNoteStorage.storage.changeNote(
                 noteToBeChanged: ReallySimpleNote(
                     noteId:        changingReallySimpleNote.noteId,
                     noteTitle:     noteTitleTextField.text!,
                     noteText:      noteTextTextView.text,
-                	noteTimeStamp: noteCreationTimeStamp)
+                    noteTimeStamp: noteCreationTimeStamp)
             )
+            // navigate back to list of notes
+            performSegue(
+                withIdentifier: "backToMasterView",
+                sender: self)
         } else {
-            // TODO error handling
+            // create alert
+            let alert = UIAlertController(
+                title: "Unexpected error",
+                message: "Cannot change the note, unexpected error occurred. Try again later.",
+                preferredStyle: .alert)
+            
+            // add OK action
+            alert.addAction(UIAlertAction(title: "OK",
+                                          style: .default ) { (_) in self.performSegue(
+                                              withIdentifier: "backToMasterView",
+                                              sender: self)})
+            // show alert
+            self.present(alert, animated: true)
         }
-        
-        performSegue(
-            withIdentifier: "backToMasterView",
-            sender: self)
     }
     
     override func viewDidLoad() {

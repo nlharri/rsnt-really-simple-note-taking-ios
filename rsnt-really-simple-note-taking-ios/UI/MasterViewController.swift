@@ -11,20 +11,29 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    //var objects = ReallySimpleNoteStorage.storage.notes
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Core data initialization
-        //As we know that container is set up in the AppDelegates so we need to refer that container.
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            // TODO proper error handling here!
-            print("Could not get app delegate.")
+            // create alert
+            let alert = UIAlertController(
+                title: "Could note get app delegate",
+                message: "Could note get app delegate, unexpected error occurred. Try again later.",
+                preferredStyle: .alert)
+            
+            // add OK action
+            alert.addAction(UIAlertAction(title: "OK",
+                                          style: .default))
+            // show alert
+            self.present(alert, animated: true)
+
             return
         }
         
-        //We need to create a context from this container
+        // As we know that container is set up in the AppDelegates so we need to refer that container.
+        // We need to create a context from this container
         let managedContext = appDelegate.persistentContainer.viewContext
         
         // set context in the storage
